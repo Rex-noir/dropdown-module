@@ -1,16 +1,20 @@
 {
   "name": "general-module-testing",
+  "private": true,
   "version": "0.0.0",
   "description": "A simple npm package for general purposes",
   "main": "./src/index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "keywords": [],
   "author": "Ace Rex <ace.rexnoir@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "vite": "^5.2.0",
     "@eslint/eslintrc": "^3.0.2",
     "@eslint/js": "^9.1.1",
     "acorn": "^8.11.3",
