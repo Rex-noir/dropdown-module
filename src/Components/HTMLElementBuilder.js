@@ -5,7 +5,11 @@ export class HTMLElementBuilder {
    * @param {string} tag the tag name of the element
    */
   constructor(tag) {
-    this.element = document.createElement(tag);
+    if (!(tag instanceof HTMLElement)) {
+      this.element = document.createElement(tag);
+    } else {
+      this.element = tag;
+    }
   }
 
   /**
@@ -44,14 +48,11 @@ export class HTMLElementBuilder {
 
   /**
    *
-   * @param {any} name the name of the attribute to set
-   * @param {any} value the value of the attribute set
+   * @param {any} name the name of the attribute to set default is 'error'
+   * @param {any} value the value of the attribute set, default is 'error'
    * @returns
    */
-  setAttribute(name, value) {
-    if (!name || !value) {
-      throw new Error(`Attribute name ${name},value ${value} `);
-    }
+  setAttribute(name = "error", value = "error") {
     this.element.setAttribute(name, value);
     return this;
   }
