@@ -19,6 +19,7 @@ export default [
     languageOptions: {
       globals: { ...globals.browser, ...globals.node },
       sourceType: "module",
+      parser: "@babel/eslint-parser",
     },
   },
   ...compat.extends("airbnb-base"),
