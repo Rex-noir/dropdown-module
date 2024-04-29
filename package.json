@@ -1,6 +1,6 @@
 {
   "name": "general-module-testing",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple npm package for general purposes",
   "main": "./src/index.js",
   "type": "module",
