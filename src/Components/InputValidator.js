@@ -16,12 +16,20 @@ export default class InputValidator {
   build() {
     return this.input;
   }
-
+  /**
+   *
+   * @param {HTMLInputElement} input
+   * @returns true | false
+   */
   static checkInstance(input) {
     if (input instanceof HTMLInputElement) return true;
     return false;
   }
 
+  /**
+   *
+   * @param {HTMLInputElement} input set "required" attribute to the input
+   */
   static setRequired(input) {
     if (this.checkInstance(input)) {
       input.required = !input.required;
