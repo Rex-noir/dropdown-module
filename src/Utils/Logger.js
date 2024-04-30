@@ -1,7 +1,15 @@
 /* eslint-disable import/prefer-default-export */
 export class Logger {
-  constructor() {
-    this.minLengthError = "Minimun length not satisfied!";
-    this.maxLengthError = "Maximum length reached!";
+  static throwError(text) {
+    throw new Error(text);
+  }
+  static inputTypeError() {
+    this.throwError("Expected an input element");
+  }
+  static minLengthError() {
+    this.throwError("Minimun length not satisfied!");
+  }
+  static maxLengthError() {
+    this.throwError("Maximum length reached!");
   }
 }
