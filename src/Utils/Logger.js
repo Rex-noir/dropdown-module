@@ -12,4 +12,10 @@ export class Logger {
   static maxLengthError() {
     this.throwError("Maximum length reached!");
   }
+  static countryNotfound() {
+    this.throwError("Country not found!");
+  }
+  static zipCodeError() {
+    this.throwError("Invalid zip code!");
+  }
 }
