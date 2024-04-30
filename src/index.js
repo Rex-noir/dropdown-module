@@ -1,6 +1,8 @@
 /* eslint-disable import/prefer-default-export */
 // eslint-disable-next-line import/extensions
-import { FormValidator } from "./Components/FormValidator";
+import ElementManger from "./Components/ELementManager";
+import InputManager from "./Components/InpuManager";
 import { HTMLElementBuilder } from "./Components/HTMLElementBuilder";
+import DataCenter from "./Utils/DataCenter";
 
-export { HTMLElementBuilder, FormValidator };
+export { HTMLElementBuilder, InputManager, DataCenter, ElementManger };
