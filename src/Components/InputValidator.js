@@ -46,6 +46,10 @@ export default class InputValidator {
    *
    * @param {HTMLInputElement} input input element to set autocomplete
    * @param {Array} suggestions the arrays of suggestions to suggest
+   * You can style the elements by selecting the id, classes of the suggestions elements
+   * Default selectors:
+   * the whole container as ID : ${input.id}-suggestion-container
+   * the list items as class : suggestion-items
    */
   static setAutoComplete(input, suggestions) {
     if (this.checkInstance(input)) {
@@ -64,7 +68,7 @@ export default class InputValidator {
             .build();
           for (let suggestion of relevant) {
             const items = new HTMLElementBuilder("div")
-              .setClass("suggestin-items")
+              .setClass("suggestion-items")
               .setText(suggestion)
               .addEvent("click", (e) => {
                 input.value = items.textContent;
