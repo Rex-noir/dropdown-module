@@ -28,4 +28,13 @@ export default class ElementManger {
     }
     return document.querySelector(`.${className}`);
   }
+  /**
+   *
+   * @param {HTMLElement} element element to add listener
+   * @param {EventListenerOptions} type Event type
+   * @param {Function} callBackFunctin  function to callback
+   */
+  addEventListener(element, type, callBackFunctin) {
+    element.addEventListener(type, callBackFunctin(e));
+  }
 }
