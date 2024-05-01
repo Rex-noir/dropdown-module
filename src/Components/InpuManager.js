@@ -68,6 +68,7 @@ export default class InputValidator {
           `${this.input.id}-suggestion-container`
         );
         if (removeDiv) removeDiv.parentNode.removeChild(removeDiv);
+
         let relevant = suggestions.filter((sugg) =>
           sugg.toLowerCase().includes(this.input.value.toLowerCase())
         );
@@ -76,17 +77,23 @@ export default class InputValidator {
           .build();
         for (let suggestion of relevant) {
           this.input.autocomplete = suggestion;
-
           const items = new HTMLElementBuilder("div")
             .setClass("suggestion-items")
             .setText(suggestion)
-            .addEvent("click", (e) => {
-              this.input.value = items.textContent;
-              container.parentNode.removeChild(container);
-            })
             .build();
           container.appendChild(items);
         }
+        container.addEventListener("click", (e) => {
+          if (e.target.classList.contains("suggestion-items")) {
+            this.input.value = e.target.textContent;
+            container.parentNode.removeChild(container);
+          }
+        });
+        this.input.addEventListener("blur", () => {
+          setTimeout(() => {
+            container.style.display = "none";
+          }, 200);
+        });
         this.input.parentNode.appendChild(container);
       });
     }
