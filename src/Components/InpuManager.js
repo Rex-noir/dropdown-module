@@ -62,7 +62,6 @@ export default class InputValidator {
    * the list items as class : suggestion-items
    */
   setAutoComplete(suggestions) {
-    this.input.autocomplete = "on";
     if (Array.isArray(suggestions)) {
       this.input.addEventListener("input", (e) => {
         const removeDiv = ElementManger.byId(
@@ -76,11 +75,14 @@ export default class InputValidator {
           .setId(`${this.input.id}-suggestion-container`)
           .build();
         for (let suggestion of relevant) {
+          this.input.autocomplete = suggestion;
+
           const items = new HTMLElementBuilder("div")
             .setClass("suggestion-items")
             .setText(suggestion)
             .addEvent("click", (e) => {
               this.input.value = items.textContent;
+              container.parentNode.removeChild(container);
             })
             .build();
           container.appendChild(items);
