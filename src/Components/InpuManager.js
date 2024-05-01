@@ -69,7 +69,7 @@ export default class InputValidator {
         );
         if (removeDiv) removeDiv.parentNode.removeChild(removeDiv);
         let relevant = suggestions.filter((sugg) =>
-          sugg.toLowerCase().startsWith(this.input.value.toLowerCase())
+          sugg.toLowerCase().includes(this.input.value.toLowerCase())
         );
         const container = new HTMLElementBuilder("div")
           .setId(`${this.input.id}-suggestion-container`)
