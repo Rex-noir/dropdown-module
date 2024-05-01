@@ -14,4 +14,11 @@ export default class ElementManger {
     static byClass(className: any): any;
     constructor(element: any);
     element: any;
+    /**
+     *
+     * @param {HTMLElement} element element to add listener
+     * @param {EventListenerOptions} type Event type
+     * @param {Function} callBackFunctin  function to callback
+     */
+    addEventListener(element: HTMLElement, type: EventListenerOptions, callBackFunctin: Function): void;
 }
