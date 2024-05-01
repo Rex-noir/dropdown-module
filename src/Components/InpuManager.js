@@ -81,6 +81,7 @@ export default class InputValidator {
             .setClass("suggestion-items")
             .setText(suggestion)
             .build();
+          items.style.width = this.input.clientWidth + "px";
           container.appendChild(items);
         }
         container.addEventListener("click", (e) => {
