@@ -17,12 +17,13 @@ export class HTMLElementBuilder {
    * @param  {...any} classList the class names to set to the elements
    * @returns   returns this object for method chaining
    */
-  setClass(...classList) {
+  setClass(classList) {
     if (!classList.length) {
       throw new Error(`Class name length ${classList.length} `);
     }
-    classList.forEach((name)=>{
-      this.element.classList.add(name.trim());
+    const classNames = classList.split(" ")
+    classNames.forEach((name)=>{
+      this.element.classList.add(name)
     })
     return this;
   }
