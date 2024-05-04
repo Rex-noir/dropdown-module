@@ -21,7 +21,9 @@ export class HTMLElementBuilder {
     if (!classList.length) {
       throw new Error(`Class name length ${classList.length} `);
     }
-    this.element.classList.add(classList.map((name) =>name.trim()).join(" "));
+    classList.forEach((name)=>{
+      this.element.classList.add(name.trim());
+    })
     return this;
   }
 
