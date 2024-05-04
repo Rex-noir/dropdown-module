@@ -21,10 +21,7 @@ export class HTMLElementBuilder {
     if (!classList.length) {
       throw new Error(`Class name length ${classList.length} `);
     }
-    this.element.classList.add(classList.map((name) => {
-      let value = name.trim();
-      return value;
-    }).join(""));
+    this.element.classList.add(classList.map((name) =>name.trim()).join(" "));
     return this;
   }
 
